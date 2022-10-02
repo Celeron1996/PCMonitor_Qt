@@ -101,6 +101,11 @@ Host: 192.168.2.107:8085
     QString url = "GET /data.json HTTP/1.1\r\n"
                   "Host: 192.168.2.107:8085\r\n"
                   "\r\n\r\n";
+
+    url = "GET /data.json HTTP/1.1\r\n";
+    url += ("Host: " + this->ui->lineEdit_ip->text() + ':' + this->ui->lineEdit_port->text() + "\r\n");
+    url += "\r\n\r\n";
+
     if(NULL == tcpSocket)
         return;
 
