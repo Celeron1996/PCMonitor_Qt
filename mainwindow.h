@@ -6,6 +6,7 @@
 #include <iostream>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include "computer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,10 +19,15 @@ class MainWindow : public QMainWindow
 private:
     /* qt tcp socket */
     QTcpSocket *tcpSocket;
+    /* data json */
+    QByteArray json;
+    /* computer info */
+    Computer *computer;
 
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    bool ParseJson(QByteArray json);
 
 private slots:
     void on_pushButton_connect_clicked();

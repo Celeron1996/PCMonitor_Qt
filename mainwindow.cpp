@@ -57,7 +57,11 @@ void MainWindow::receiveMessages()
 {
     /* 读取接收到的消息 */
     QString messages = tcpSocket->readAll();
-
+    json = messages.toUtf8();
+    computer = new Computer(json);
+    computer->Printf();
+    this->ui->textBrowser_receive->clear();
+    this->ui->textBrowser_receive->setText(messages);
     qDebug() << messages ;
 }
 
